@@ -45,17 +45,6 @@ class grouping(object):
         else:
             raise ValueError('dictionnary expected to be passed')
 
-#   useless piece of code
-#    def removefromgroup(self, group, value):
-#        if group not in self.dic:
-#            raise ValueError ('Group unkown')
-#        if value.__class__!=list:
-#            self.dic[group].pop(value)
-#        else:
-#            if set(value).issubset(self.dic[group]):
-#                self.dic[group] = self.dic[group].difference(set(value))
-#            else:
-#                raise ValueError ('item not present in group')
 
     def movetogroup(self, src, dest, value):
         if value.__class__ == list:
@@ -458,9 +447,6 @@ class listobs(object):
             print(k, ': \t', v[0], ' \t', v[1], '\t', v[2])
         return str()
 
-    #legacy code
-#    def getobs(self, key):
-#        return [key, self.dic[key][0], self.dic[key][1]]
 
 class Groupobservation(listobs):
 
@@ -620,22 +606,7 @@ def autogroup(dataframe, variable, flag, def_value=None,group_method='Paragon', 
         table[1] = table[1]*table.w1
 
 
-
-#    if def_value != None:
-#        for elem in def_value:
-#            subtable = table[table.value == elem]
-#            if len(subtable > 0):
-#                Go = Groupobservation()
-#                good = subtable[subtable['value'] == elem][0].values[0]
-#                bad = subtable[subtable['value'] == elem][1].values[0]
-#                Go.addobs(observation([elem, good, bad]))
-#                name_group.addGroup(Go)
-#                table = table[table.value != elem]
-
-
     table = table.reset_index(drop=True)
-
-
 
     list_of_bin = []
     index = 0
